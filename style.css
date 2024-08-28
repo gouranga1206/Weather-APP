@@ -1,52 +1,266 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+main {
+  display: flex;
+  overflow: hidden;
 }
 
-body{
-    width: auto;
-    height:100vh;
-    font-family: "Ubuntu", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    display: flex;
-    justify-content: center;
-    align-items: center;
- }
-
-.WeatherBox{
-    width:auto;
-    max-width: 600px;
-    height:50vh;
-    background-color: aqua;
+.animationBox {
+  width: 70%;
+  height: 100vh;
+  background-color: #1a2238;
 }
 
-.SearchBox{
-    width: 100%;
-    background-color: rgb(78, 116, 116);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap:10px;
-    padding: 20px;    
+#svg {
+  position: relative;
+  width: 100%;
+  height: 50%;
+  top: 50%;
+  /* background-color: bisque; */
+  z-index: 2;
 }
 
-#SearchCity{
-    all:unset;
-    width:50%;
-    background-color: white;
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
-    padding: 10px 16px;
+#Object #layer_last > rect,
+polygon {
+  fill: rgb(77, 79, 72) !important;
 }
 
-.location_icon{
-    background-color: blue;
-    padding:7.5px;
-    margin-left:-10px; 
-    padding-right: 10px;
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
+#Object #second_lastLayer > rect,
+polygon {
+  fill: rgb(87, 119, 132) !important;
+}
+
+/* #B5C3C2,  */
+
+/* rainy Season */
+.moon,
+.sun,
+.eveningSun {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgb(239, 239, 181);
+  top: 12%;
+  left: 15%;
+  box-shadow: 0 0 100px 0 #f6edbd;
+  overflow: hidden;
+}
+
+.moon,
+.sun {
+  animation: moon 1.2s ease-in forwards;
+}
+
+.sun {
+  background-color: rgb(254, 254, 188);
+  filter: blur(2px);
+  -webkit-filter: blur(1px);
+  box-shadow: 0 0 100px 0 #ffffff !important;
+}
+
+.eveningSun {
+  width: 200px;
+  height: 200px;
+  top: 65%;
+  background: rgb(153, 154, 161);
+  background: linear-gradient(    0deg,    rgba(153, 154, 161, 0.5439425770308124) 3%,    rgba(186, 194, 94, 0.7876400560224089) 44%,    rgba(221, 182, 84, 0.7876400560224089) 86%  );
+  box-shadow: 0 0 100px 0 #fff7dd !important;
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
+}
+
+@keyframes moon {
+  0% {
+    transform: translate(-20px, 540px);
+    -webkit-transform: translate(-20px, 540px);
+    -moz-transform: translate(-20px, 540px);
+    -ms-transform: translate(-20px, 540px);
+    -o-transform: translate(-20px, 540px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+.moon > .crater {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  border-radius: 10px;
+  background: #ece1a8;
+}
+
+.crater-1 {
+  top: 9px;
+  left: 28px;
+}
+
+.crater-2 {
+  top: 12px;
+  left: 0;
+}
+
+.crater-3 {
+  top: 56px;
+  left: 10px;
+}
+
+.crater-4 {
+  width: 6px !important;
+  height: 6px !important;
+  top: 37px;
+  left: 49px;
+}
+
+.crater-5 {
+  width: 6px !important;
+  height: 6px !important;
+  top: 24px;
+  left: 61px;
+}
+
+.crater-6 {
+  width: 6px !important;
+  height: 6px !important;
+  top: 55px;
+  left: 33px;
+}
+
+.crater-7 {
+  width: 6px !important;
+  height: 6px !important;
+  top: 17px;
+  left: 46px;
+}
+
+.crater-8 {
+  width: 6px !important;
+  height: 6px !important;
+  top: 28px;
+  left: 27px;
+}
+
+.crater-9 {
+  width: 6px !important;
+  height: 6px !important;
+  top: 39px;
+  left: 17px;
+}
+
+.crater-10 {
+  width: 4px !important;
+  height: 4px !important;
+  top: 25px;
+  left: 15px;
+}
+.crater-11 {
+  width: 4px !important;
+  height: 4px !important;
+  top: 37px;
+  left: 37px;
+}
+
+/* Container for the stars */
+.stars {
+  width: 70%; /* Set width to 70% of the inner width */
+  height: 100vh; /* Set height to 100% of the viewport height */
+  position: absolute; /* Relative positioning to contain absolutely positioned stars */
+  overflow: hidden;
+  top: 0;
+}
+
+/* General styling for each star */
+.star {
+  width: 2px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: 0px 0px 12px white;
+}
+
+/* Random positioning for each star */
+.star-1 {
+  top: 10px;
+  left: 20px;
+}
+.star-2 {
+  top: 30%;
+  left: 50%;
+}
+.star-3 {
+  top: 70%;
+  left: 10%;
+}
+.star-4 {
+  top: 50%;
+  left: 90%;
+}
+.star-5 {
+  top: 80%;
+  left: 40%;
+}
+.star-6 {
+  top: 20%;
+  left: 60%;
+}
+.star-7 {
+  top: 40%;
+  left: 80%;
+}
+.star-8 {
+  top: 60%;
+  left: 30%;
+}
+.star-9 {
+  top: 90%;
+  left: 70%;
+}
+.star-10 {
+  top: 10%;
+  left: 90%;
+}
+.star-11 {
+  top: 15%;
+  left: 35%;
+}
+.star-12 {
+  top: 25%;
+  left: 15%;
+}
+.star-13 {
+  top: 35%;
+  left: 55%;
+}
+.star-14 {
+  top: 45%;
+  left: 75%;
+}
+.star-15 {
+  top: 55%;
+  left: 25%;
+}
+.star-16 {
+  top: 65%;
+  left: 85%;
+}
+.star-17 {
+  top: 75%;
+  left: 45%;
+}
+.star-18 {
+  top: 85%;
+  left: 65%;
+}
+.star-19 {
+  top: 95%;
+  left: 5%;
+}
+.star-20 {
+  top: 5%;
+  left: 85%;
 }
