@@ -8,15 +8,15 @@ form.addEventListener("submit", async function(e){
     console.log(finalData);
     
     displayData.innerHTML=`
-    <pre>
-    <b>${countryInput}</b>
-    country-code:${finalData.sys.country}
-    temp: ${finalData.main.temp}
-    weather: ${finalData.weather[0].main}
-    min-temp:${finalData.main.temp_min}
-    max-temp:${finalData.main.temp_max}
-    humidity:${finalData.main.humidity}
-    </pre>
+    <center>
+    <b>${countryInput}</b><br>
+    country-code:${finalData.sys.country}<br>
+    temp: ${finalData.main.temp}<br>
+    weather: ${finalData.weather[0].main}<br>
+    min-temp:${finalData.main.temp_min}<br>
+    max-temp:${finalData.main.temp_max}<br>
+    humidity:${finalData.main.humidity}<br>
+    </center>
     `
 
 })
